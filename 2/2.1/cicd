@@ -1,0 +1,30 @@
+stages:
+  - build1
+  - clean1
+
+variables:
+  DOCKER_IMAGE_TAG: "latest"
+
+build_works:
+  stage: build1
+  tags: 
+    - work1
+  script:
+    - echo "start build_works"
+    - git clone https://github.com/777lsg/sfproj1.git
+    - cd ./sfproj1
+    - docker-compose build
+    - docker login
+    - docker tag sfproj1_app:latest 777lsg/sfproj1_app:$DOCKER_IMAGE_TAG
+    - docker push 777lsg/sfproj1_app:$DOCKER_IMAGE_TAG
+    - echo "end build_works"
+ 
+clean_works:
+  stage: clean1
+  tags: 
+    - work1
+  script:
+    - echo "start clean1"
+    - docker rmi sfproj1_app:latest -f
+    - docker rmi 777lsg/sfproj1_app:$DOCKER_IMAGE_TAG -f
+    - echo "end clean1"

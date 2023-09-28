@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: app-container
+          image: 777lsg/sfproj1_app
+          ports:
+            - containerPort: 3003
+          command: ["sh", "-c"]
+          args:
+            - "python manage.py migrate && python manage.py runserver 0.0.0.0:3003"
+          env:
+            - name: DB_HOST
+              value: "db-service"
+            - name: DB_NAME
+              value: "tutorial-dev"
+            - name: DB_USER
+              value: "vinhle"
+            - name: DB_PASS
+              value: "password"
+      restartPolicy: Always
