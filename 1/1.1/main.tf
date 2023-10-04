@@ -121,22 +121,6 @@ resource "yandex_compute_instance" "vm-3" {
 
 
 
-resource "yandex_lb_target_group" "group_web_1" {
-  name      = "my-target-group"
-  region_id = "ru-central1"
-
-  target {
-    subnet_id = yandex_vpc_subnet.subnet1.id
-    address   = yandex_compute_instance.vm-1.network_interface.0.ip_address
-  }
-
-}
-
-
-}
-
-
-
 
 output "external_ip_address_vm_1" {
   value = yandex_compute_instance.vm-1.network_interface.0.nat_ip_address
