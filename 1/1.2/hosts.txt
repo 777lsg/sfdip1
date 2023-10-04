@@ -1,0 +1,6 @@
+[nserver]
+
+
+master ansible_host=158.160.117.19
+app ansible_host=158.160.121.209
+

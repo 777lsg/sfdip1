@@ -1,0 +1,8 @@
+---
+- name: settings new server
+  hosts: nserver
+  remote_user: ubuntu
+  become: yes
+
+  roles:
+    - prep1
