@@ -1,6 +1,7 @@
 ---
 - name: instdock
   hosts: ndocker
+  remote_user: ubuntu
   become: yes
 
 
