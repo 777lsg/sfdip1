@@ -1,0 +1,8 @@
+---
+- name: instdock
+  hosts: ndocker
+  become: yes
+
+
+  roles:
+    - dockerinst

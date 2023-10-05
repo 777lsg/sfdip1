@@ -1,6 +1,17 @@
-[nserver]
+[all]
+master ansible_host=158.160.120.62 ansible_ssh_user=ubuntu # ip=10.3.0.1 etcd_member_name=etcd1
+app ansible_host=158.160.109.58  ansible_ssh_user=ubuntu # ip=10.3.0.2 etcd_member_name=etcd2
+srv ansible_host=158.160.111.221  ansible_ssh_user=ubuntu # ip=10.3.0.2 etcd_member_name=etcd2
 
 
-master ansible_host=158.160.117.19
-app ansible_host=158.160.121.209
+[glrunner]
+master
+srv
+
+[ndocker]
+srv
+
+[bef_kub]
+master
+app
 

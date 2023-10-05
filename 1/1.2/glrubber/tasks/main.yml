@@ -1,0 +1,19 @@
+---
+- name: add repo 
+  shell: curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
+  register: gitlab_runner_install_output
+  changed_when: "'is already installed' not in gitlab_runner_install_output.stdout"
+
+- name: install gl runner
+  apt:
+    name: gitlab-runner
+    state: present
+  when: gitlab_runner_install_output.changed
+
+- name: start gl runner
+  systemd:
+    name: gitlab-runner
+    state: started
+    enabled: yes
+  when: gitlab_runner_install_output.changed
+

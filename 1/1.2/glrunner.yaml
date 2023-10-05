@@ -1,8 +1,8 @@
 ---
 - name: settings new server
-  hosts: nserver
+  hosts: glrunner
   remote_user: ubuntu
   become: yes
 
   roles:
-    - prep1
+    - glrunner

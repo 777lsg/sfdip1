@@ -1,0 +1,8 @@
+---
+- name: settings new server
+  hosts: bef_kub
+  remote_user: ubuntu
+  become: yes
+
+  roles:
+    - prep1
