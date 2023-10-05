@@ -1,7 +1,7 @@
 # sfdip1
 # 1
     - 1.1 Разварачиваем VM с помощью terraform
-    - 1.2 Ansible находится на отдельной машине. В этой папке редактирум файл hosts.txt под наши сервера. 
+    - 1.2 Ansible находится на отдельной машине, домашней. В этой папке редактирум файл hosts.txt под наши сервера. 
     befkuber.yml - подготовка дял установки kubernetes. dockerinst.yaml - установка docker. glrunner.yaml установка gitlab runners.
     - 1.3 Установка kubernetes. Настраиваем ansible. В файле (inventory/k8s/inventory.ini) меняем наши сервера и запускаем kubespray ansible-playbook -i inventory/k8s/inventory.ini cluster.yml
 
